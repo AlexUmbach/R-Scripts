@@ -24,13 +24,15 @@ ggplot(data=Data1, aes(x=SampleLabel, y=Diff, width = 0.9)) +
            position=position_dodge(preserve = "single")
            #position = "dodge",
            ) +
+
+  # This section was just me playing arond with some stuff. 
   #geom_text(aes(label = Archaea.Reads),)+ 
   #coord_polar("y", start=0) +
   #coord_cartesian() +
   #coord_quickmap() +
   #coord_polar("y", start=0,clip="off") +
   
-  #add an error bar?
+  # This section adds an error bar based on two additional columns in your datafile (labelled Ymin and Ymax
   #geom_errorbar(data=Data1, aes(ymin=Ymin,ymax=Ymax), position = "dodge") + 
   
   scale_fill_brewer(palette="Set1") +
@@ -56,7 +58,8 @@ ggplot(data=Data1, aes(x=SampleLabel, y=Diff, width = 0.9)) +
       panel.spacing = unit(0, "lines"),
       ) + 
   
-  # setting the graph so that it begins at the x-axis and there is no gap. Also sets the limits of the y-axis.
+  # setting the graph so that it begins at the x-axis and there is no gap. Also sets the limits of the y-axis. This will have to be
+  # changed depending on your dataset, or you can comment out the commands and it will just ignore it. 
   scale_y_continuous(expand = c(0.005,0),
                      limit=c(-50,150)) + 
   
@@ -64,7 +67,7 @@ ggplot(data=Data1, aes(x=SampleLabel, y=Diff, width = 0.9)) +
   scale_x_discrete(expand = expand_scale(0,1),
                    breaks=NULL)+
   
-  #cuts out the legend title
+  #cuts out the legend title or adds a custom title; " " leaves a blank. 
   labs(fill = "") +
   
   xlab("") +
